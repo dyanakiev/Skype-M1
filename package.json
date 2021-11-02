@@ -1,6 +1,6 @@
 {
   "name": "Skype",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "main": "index.js",
   "description": "Skype Native for M1 Macs",
   "author": {
