@@ -54,7 +54,7 @@ An ARM64 native Skype desktop app for M1 Macs, based on Discord [yannhodiesne](h
 
 5. You can now find the `Skype-vX.X.X-arm64.dmg` file inside `Skype-M1/dist` and the `Skype.app` file inside `DiscordSkype-M1/dist/mac-arm64`
 
-> Alternatively you can run the app directly from source using `yarn start`, but it will be slower as it is intended for development purposes
+> Alternatively you can run the app directly from source using `npm run start`, but it will be slower as it is intended for development purposes
 
 # FAQ
 
