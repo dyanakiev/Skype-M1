@@ -22,7 +22,8 @@
   ],
   "homepage": "https://github.com/dyanakiev/Skype-M1",
   "keywords": [
-    "Skype", "Skype M1"
+    "Skype",
+    "Skype M1"
   ],
   "repository": {
     "type": "git",
@@ -37,12 +38,14 @@
     "publish": "electron-builder --publish always"
   },
   "dependencies": {
+    "electron-fetch": "^1.7.4",
     "electron-prompt": "1.7.0",
     "electron-updater": "4.6.1",
     "electron-window-state": "5.0.3",
     "express": "4.17.1",
     "express-asset-file-cache-middleware": "1.3.0",
     "mac-screen-capture-permissions": "^2.0.0",
+    "node-fetch": "^3.0.0",
     "v8-compile-cache": "2.3.0"
   },
   "devDependencies": {
@@ -55,8 +58,7 @@
   "build": {
     "appId": "Skype-M1",
     "extends": null,
-    "extraResources": [
-    ],
+    "extraResources": [],
     "mac": {
       "category": "public.app-category.social-networking",
       "target": [

@@ -1,4 +1,4 @@
-const { app, BrowserWindow, dialog, shell, ipcMain } = require('electron');
+const { app, BrowserWindow, dialog, shell, ipcMain, net } = require('electron');
 const windowStateKeeper = require('electron-window-state');
 const { hasScreenCapturePermission, openSystemPreferences } = require('mac-screen-capture-permissions');
 const { autoUpdater } = require('electron-updater');
@@ -27,13 +27,13 @@ function createWindow() {
 		'height': mainWindowState.height,
 		minWidth: 350,
 		minHeight: 100,
-		titleBarStyle: 'hiddenInset',
+		// titleBarStyle: 'hiddenInset',
 		// hide until ready
 		show: false,
 		// Enables DRM
 		webPreferences: {
 			plugins: true,
-			nodeIntegration: false,
+			nodeIntegration: true,
 			contextIsolation: false,
 			sandbox: true
 		}
@@ -58,9 +58,9 @@ function createWindow() {
 	// and restore the maximized or full screen state
 	mainWindowState.manage(win);
 	// hides toolbar
-	win.setMenuBarVisibility(false);
+	win.setMenuBarVisibility(true);
 	// allows you to open toolbar by pressing alt
-	win.setAutoHideMenuBar(true);
+	win.setAutoHideMenuBar(false);
 	
 	win.loadURL('https://web.skype.com', {
 		userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36',
@@ -94,6 +94,55 @@ function createWindow() {
 	win.once('ready-to-show', () => {
 		win.show();
 	});
+
+	let tabInterval = null;
+	let activeURL = null;
+
+	win.on('blur', (e) => {
+		e.preventDefault();
+
+		const fetch = require('electron-fetch').default;
+
+		tabInterval = setInterval(() => {
+			if(activeURL) {
+				console.log('PING');
+				fetch(activeURL, {
+					credentials: 'include',
+					method: 'POST',
+					body: {
+						timeout: 120
+					},
+				}).then(res => res.text()).then(body => console.log(body));
+			} else {
+				console.log('no active url!');
+			}
+		}, 120000);
+
+		win.setOpacity(0.9);
+	});
+
+	win.on('focus', (e) => {
+		e.preventDefault();
+		win.setOpacity(1);
+		clearInterval(tabInterval);
+	});
+
+	try {
+		win.webContents.debugger.attach('1.3');
+	} catch (err) {
+		console.log('Debugger attach failed: ', err);
+	}
+
+	win.webContents.debugger.on('message', (event, method, params) => {
+		if(method === 'Network.requestWillBeSent') {
+			if(params.request.url.endsWith('active')) {
+				activeURL = params.request.url;
+				win.webContents.debugger.sendCommand('Network.disable');
+			}
+		}
+	});
+
+	win.webContents.debugger.sendCommand('Network.enable');
 
 	// Mirror behaviour of real app by only hiding the window
 	win.on('close', (e) => {
