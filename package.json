@@ -1,27 +1,32 @@
 {
-  "name": "Discord",
+  "name": "Skype",
   "version": "1.5.3",
   "main": "index.js",
-  "description": "Discord Native for M1 Macs",
+  "description": "Skype Native for M1 Macs",
   "author": {
-    "name": "Yann Hodiesne",
-    "email": "yann.hodiesne@viacesi.fr",
-    "url": "https://github.com/yannhodiesne/Discord-M1"
+    "name": "Dimitar Yanakiev",
+    "email": "dimitar.d.yanakiev@gmail.com",
+    "url": "https://github.com/dyanakiev/Skype-M1"
   },
   "contributors": [
+    {
+      "name": "Yann Hodiesne",
+      "email": "yann.hodiesne@viacesi.fr",
+      "url": "https://github.com/yannhodiesne/Discord-M1"
+    },
     {
       "name": "17hoehbr",
       "email": "17hoehbr@gmail.com",
       "url": "https://github.com/17hoehbr/Discord-M1"
     }
   ],
-  "homepage": "https://github.com/yannhodiesne/Discord-M1",
+  "homepage": "https://github.com/dyanakiev/Skype-M1",
   "keywords": [
-    "Discord"
+    "Skype", "Skype M1"
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://github.com:yannhodiesne/Discord-M1"
+    "url": "git+ssh://github.com:dyanakiev/Skype-M1"
   },
   "license": "MIT",
   "scripts": {
@@ -48,12 +53,9 @@
     "webpack": "4.46.0"
   },
   "build": {
-    "appId": "Discord-M1",
+    "appId": "Skype-M1",
     "extends": null,
     "extraResources": [
-      "discord-badge-count.js",
-      "discord-context-menu.js",
-      "discord-platform-osx.js"
     ],
     "mac": {
       "category": "public.app-category.social-networking",
@@ -70,8 +72,8 @@
       "publish": [
         {
           "provider": "github",
-          "owner": "yannhodiesne",
-          "repo": "Discord-M1"
+          "owner": "dyanakiev",
+          "repo": "Skype-M1"
         }
       ]
     }

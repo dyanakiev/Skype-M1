@@ -41,7 +41,6 @@ function createWindow() {
 
 	// Load the preloads scripts
 	win.webContents.session.setPreloads([
-		path.join(__dirname, 'preload-badge-count.js'),
 		path.join(__dirname, 'preload-get-display-media-polyfill.js'),
 	]);
 
@@ -63,15 +62,13 @@ function createWindow() {
 	// allows you to open toolbar by pressing alt
 	win.setAutoHideMenuBar(true);
 	
-	win.loadURL('https://discord.com/app', {
+	win.loadURL('https://web.skype.com', {
 		userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36',
 	});
 
-	// Inject custom JavaScript into Discord
+	// Inject custom JavaScript into Skype
 	const filesToInject = [
-		'discord-badge-count.js',
-		'discord-context-menu.js',
-		'discord-platform-osx.js'
+		'skype-platform-osx.js'
 	];
 
 	filesToInject.forEach((file) => {
@@ -130,10 +127,10 @@ autoUpdater.on('update-available', ({ version }) => {
 		defaultId: 0,
 		cancelId: 1,
 		title: 'Update available',
-		detail: `A new version of Discord-M1 is available, would you like to check it out on GitHub ?\n\nCurrent version: ${app.getVersion()}\nLatest version: ${version}`,
+		detail: `A new version of Skype-M1 is available, would you like to check it out on GitHub ?\n\nCurrent version: ${app.getVersion()}\nLatest version: ${version}`,
 	}).then(({ response }) => {
 		if (response === 0)
-			shell.openExternal('https://github.com/yannhodiesne/Discord-M1/releases');
+			shell.openExternal('https://github.com/dyanakiev/Skype-M1/releases');
 	});
 });
 

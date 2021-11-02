@@ -1,21 +1,23 @@
-# Discord-M1
+# Skype-M1
 
-> This project is a fork of [Discord-M1](https://github.com/17hoehbr/Discord-M1), with support for screen sharing, badges, and tweaks to keep the native application's look and feel on macOS.
+> This project is a fork of [Discord-M1](https://github.com/yannhodiesne/Discord-M1)
 
-An ARM64 native Discord desktop app for M1 Macs, based on [17hoehbr](https://github.com/17hoehbr)'s work.
+An ARM64 native Skype desktop app for M1 Macs, based on Discord [yannhodiesne](https://github.com/yannhodiesne)'s work.
 
 ## Working features
 
  - Voice calls
- - Screen sharing (entire screens and individual windows)
- - Badges (notifications count on the Discord icon)
- - Right-clicking to bring the context menu
+ - Screen sharing OOB (entire screens and individual windows)
+ - Right-clicking to bring the context menu OOB
+
+## Coming soon
+ - Badges (notifications count on the Skype icon)
 
 # How to install
 
- 1. Head to the [releases page](https://github.com/yannhodiesne/Discord-M1/releases) and download the latest version.
+ 1. Head to the [releases page](https://github.com/dyanakiev/Skype-M1/releases) and download the latest version.
  2. Open the .dmg file and copy the application **anywhere but not inside your Applications folder**.
- 3. Open a terminal, and type `xattr -rd com.apple.quarantine ` (with a space at the end), then drag the Discord application onto the terminal before pressing Enter.
+ 3. Open a terminal, and type `xattr -rd com.apple.quarantine ` (with a space at the end), then drag the Skype application onto the terminal before pressing Enter.
  4. Enjoy !
 
 > Steps 2 and 3 are mandatory because I did not pay Apple's 99$ fee to sign the application.  
@@ -36,21 +38,21 @@ An ARM64 native Discord desktop app for M1 Macs, based on [17hoehbr](https://git
 
 1. Clone the project
 
-```$ git clone https://github.com/yannhodiesne/Discord-M1.git```
+```$ git clone https://github.com/dyanakiev/Skype-M1.git```
 
 2. Navigate to the project's folder
 
-```$ cd Discord-M1```
+```$ cd Skype-M1```
 
 3. Install the required dependencies
 
-```$ yarn install```
+```$ npm run install```
 
 4. Compile and package the application
 
-```$ yarn dist```
+```$ npm run dist```
 
-5. You can now find the `Discord-vX.X.X-arm64.dmg` file inside `Discord-M1/dist` and the `Discord.app` file inside `Discord-M1/dist/mac-arm64`
+5. You can now find the `Skype-vX.X.X-arm64.dmg` file inside `Skype-M1/dist` and the `Skype.app` file inside `DiscordSkype-M1/dist/mac-arm64`
 
 > Alternatively you can run the app directly from source using `yarn start`, but it will be slower as it is intended for development purposes
 
@@ -63,14 +65,16 @@ Follow the instructions inside the *How to install* section, and feel free to bl
 
 ## Why is the share screen button opening the System Preferences but I still cannot share my screen?
 
-It happens because you moved Discord inside the Applications folder.  
+It happens because you moved Skype inside the Applications folder.  
 Apple is restricting the permissions of unsigned applications inside of this folder, to ensure only trusted ones can interact with some parts of the system.  
 Follow the instructions inside the *How to install* section, and feel free to blame Apple for their developer's fee.
 
-# Credits
+
+# Credits from original authors of Discord Native M1
 
 Made with [Electron-Builder](https://www.electron.build/).
 
+Kudos to [yannhodiesne](https://github.com/yannhodiesne) for his fork work on an M1-friendly Discord client.
 Kudos to [17hoehbr](https://github.com/17hoehbr) for his original work on an M1-friendly Discord client.
 
 Screen sharing support would not have been possible without these ressources and their authors :
