@@ -12,7 +12,8 @@ An ARM64 native Skype desktop app for M1 Macs, based on Discord [yannhodiesne](h
 
 ## Coming soon
  - Badges (notifications count on the Skype icon)
-
+ - Keep Online (skype web bug)
+ 
 # How to install
 
  1. Head to the [releases page](https://github.com/dyanakiev/Skype-M1/releases) and download the latest version.
