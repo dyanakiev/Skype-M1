@@ -29,7 +29,6 @@ An ARM64 native Skype desktop app for M1 Macs, based on Discord [yannhodiesne](h
 
  - Have Xcode installed and run it at least once to install required tools
  - Node.js 14.16.0 or above (https://nodejs.org/en/)
- - The yarn package manager (https://classic.yarnpkg.com/en/docs/install)
 
 > As of today, Node 17 fails to compile one of the project's dependencies  
 > I recommend to use Node 16 while waiting for `node-gyp` to fix this issue
